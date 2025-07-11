@@ -2,6 +2,7 @@ const API_URL = 'http://localhost:4000/api/tasks';
 const taskForm = document.getElementById('task-form');
 const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('task-list');
+let currentFilter = 'all';
 
 // Fetch and display tasks
 async function fetchTasks() {
@@ -9,12 +10,17 @@ async function fetchTasks() {
     const res = await fetch(API_URL);
     const tasks = await res.json();
 
-    tasks.forEach(task => {
+    const filtered = tasks.filter(task => {
+        if (currentFilter === 'completed') return task.completed;
+        if (currentFilter === 'active') return !task.completed;
+        return true;
+    });
+
+    filtered.forEach(task => {
         const li = document.createElement('li');
         li.textContent = task.title;
         li.className = task.completed ? 'completed' : '';
 
-        // Add action buttons
         const actions = document.createElement('div');
         actions.classList.add('actions');
 
@@ -38,6 +44,16 @@ async function fetchTasks() {
         taskList.appendChild(li);
     });
 }
+
+document.querySelectorAll('.filter').forEach(button => {
+    button.addEventListener('click', () => {
+        document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        currentFilter = button.dataset.filter;
+        fetchTasks();
+    });
+});
+
 
 // Add a new task
 taskForm.addEventListener('submit', async (e) => {
