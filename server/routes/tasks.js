@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
     if (!title) return res.status(400).json({ error: 'Title is required' });
 
     try {
-        const newTask = new Task({ title });
+        const { title, priority } = req.body;
+        const newTask = new Task({ title, priority });
         await newTask.save();
         res.status(201).json(newTask);
     } catch (err) {

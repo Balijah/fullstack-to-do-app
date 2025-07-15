@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Times New Roman', sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     background-color: #f9fafb;
     color: #111827;
     line-height: 1.6;
@@ -32,6 +32,7 @@ form {
 
 form input[type="text"] {
     width: 100%;
+    position: relative;
     padding: 10px;
     border: 2px solid #d1d5db;
     border-radius: 6px;
@@ -98,7 +99,8 @@ li.completed {
 
 form button {
     margin-top: auto;
-    position: absolute and transfrom;
+    position: relative;
+    height: 60px;
     background-color: #10b981;
     color: white;
     border: none;
@@ -117,6 +119,35 @@ li,
 .actions button,
 form button {
     transition: all 0.2s ease;
+}
+
+form select {
+    padding: 10px;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+.priority {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-right: 12px;
+    color: white;
+}
+
+.priority.high {
+    background-color: #ef4444;
+}
+
+.priority.medium {
+    background-color: #facc15;
+    color: #111827;
+}
+
+.priority.low {
+    background-color: #10b981;
 }
 
 #filters {

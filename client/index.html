@@ -12,9 +12,13 @@
     <body>
         <div class="container">
             <h1>My To-Do List</h1>
-
             <form id="task-form">
                 <input type="text" id="task-input" placeholder="Add a new task" required />
+                <select id="priority">
+                    <option value="High">High Priority</option>
+                    <option value="Medium">Medium Priority</option>
+                    <option value="Low" selected>Low Priority</option>
+                </select>
                 <button type="submit">Submit Task</button>
             </form>
 
