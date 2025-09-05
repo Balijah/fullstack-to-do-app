@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:4000/api/tasks';
+const API_URL = 'https://fullstack-to-do-app-km5e.onrender.com/api/tasks';
+const AUTH_URL = 'https://fullstack-to-do-app-km5e.onrender.com/api/auth';
 const taskForm = document.getElementById('task-form');
 const taskInput = document.getElementById('task-input');
 const taskList = document.getElementById('task-list');

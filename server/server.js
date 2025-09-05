@@ -7,12 +7,21 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://your-client-url.netlify.app'],
+    credentials: true
+}));
+
 app.use(express.json());
 
 // Test route
 app.get('/test', (req, res) => {
     res.json({ message: 'CORS is working!' });
+});
+
+// Health check route
+app.get('/health', (req, res) => {
+    res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
 // Routes
