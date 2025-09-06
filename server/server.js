@@ -19,6 +19,19 @@ app.get('/test', (req, res) => {
     res.json({ message: 'CORS is working!' });
 });
 
+// Root route
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Todo App API is running!',
+        endpoints: {
+            health: '/health',
+            test: '/test',
+            tasks: '/api/tasks',
+            auth: '/api/auth'
+        }
+    });
+});
+
 // Health check route
 app.get('/health', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
