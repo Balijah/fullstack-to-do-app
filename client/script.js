@@ -41,7 +41,7 @@ function applyTheme(theme) {
         if (themeToggle) themeToggle.textContent = '☀️';
     } else {
         document.documentElement.classList.remove('dark');
-        if (themeToggle) themeToggle.textContent = '��';
+        if (themeToggle) themeToggle.textContent = '🌙';
     }
 }
 function getTheme() { return localStorage.getItem('theme') || 'light'; }
@@ -110,7 +110,7 @@ registerBtn.addEventListener('click', async () => {
         setToken(data.token);
         authStatus.textContent = 'Registered & logged in';
         updateVisibility();
-        showToast('Account created. Let's get things done!');
+        showToast('Account created. Let\'s get things done!');
         fetchTasks();
     } catch (err) {
         authStatus.textContent = err.message;
