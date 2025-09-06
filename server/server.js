@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://spontaneous-bunny-74a76a.netlify.app/'],  // This allows all origins temporarily
+    origin: ['http://localhost:3000', 'https://spontaneous-bunny-74a76a.netlify.app'],  // This allows all origins temporarily
     credentials: true
 }));
 
